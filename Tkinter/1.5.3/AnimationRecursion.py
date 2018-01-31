@@ -6,17 +6,17 @@
 # version 11/1/2013
 ####
 
-import Tkinter  # often people import Tkinter as *
+import Tkinter as tk  # often people import tk as *
 
 #####
 # Create root window
 ####
-root = Tkinter.Tk()
+root = tk.Tk()
 
 #####
 # Create Model
 ######
-speed_intvar = Tkinter.IntVar()
+speed_intvar = tk.IntVar()
 speed_intvar.set(3)  # Initialize y coordinate
 # radius and x-coordinate of circle
 r = 10
@@ -28,18 +28,23 @@ direction = 0.5  # radians of angle in standard position, ccw from positive x ax
 # Create Controller
 #######
 # Instantiate and place slider
-speed_slider = Tkinter.Scale(root, from_=5, to=1, variable=speed_intvar,
+yeet_slider = tk.Scale(root, from_=450, to=1, variable=speed_intvar,
+                             label='amount of swag you have')
+yeet_slider.grid(row=2, column=0, sticky=tk.W)
+
+
+speed_slider = tk.Scale(root, from_=450, to=1, variable=speed_intvar,
                              label='speed')
-speed_slider.grid(row=1, column=0, sticky=Tkinter.W)
+speed_slider.grid(row=1, column=0, sticky=tk.W)
 # Create and place directions for the user
-text = Tkinter.Label(root, text='Drag slider \nto adjust\nspeed.')
+text = tk.Label(root, text='Drag slider \nto adjust\nspeed.')
 text.grid(row=0, column=0)
 
 ######
 # Create View
 #######
 # Create and place a canvas
-canvas = Tkinter.Canvas(root, width=600, height=600, background='#FFFFFF')
+canvas = tk.Canvas(root, width=600, height=600, background='#FFFFFF')
 canvas.grid(row=0, rowspan=2, column=1)
 
 # Create a circle on the canvas to match the initial model
